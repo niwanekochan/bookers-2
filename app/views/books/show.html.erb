@@ -29,6 +29,12 @@
         </tbody>
       </table>
       <%= form_with(model:[@book, @book_comment], local: true) do |f| %>
+        <% if @book_comment.errors.any? %>
+          <%= @book_comment.errors.count %>error
+          <% @book_comment.errors.full_messages.each do |message| %>
+            <%= message %>
+          <% end %>
+        <% end %>
         <div>
           <%= f.text_area :comment %>
           <%= f.submit '送信' %>
