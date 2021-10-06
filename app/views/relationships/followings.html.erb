@@ -1,0 +1,23 @@
+<h2>Follow User</h2>
+<% if @users.exists? %>
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>follow</th>
+      <th>follower</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.followings.count %></td>
+        <td><%= user.followers.count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+  <p>No User</p>
+<% end %>
